@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .back {
+            background-color: whitesmoke;
+            width: 350px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 10px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <h4>Area of Circle</h4>
+        <label for="radius1">Enter Radius</label>
+        <input type="tel" id="radius1">
+        <p id="result1"></p>
+        <button class="btn" onclick="calculateArea()">Calculate</button>
+    </div>
+
+    <div class="back">
+        <h4>Temperature Conversion</h4>
+        <label for="celsius">Enter Celsius</label>
+        <input type="tel" id="celsius">
+        <p id="result2"></p>
+        <button class="btn" onclick="celsiusToFahrenheit()">Calculate</button>
+    </div>
+
+    <div class="back">
+        <h4>Filter Even Numbers</h4>
+        <label for="numbers">Enter Numbers (comma separated)</label>
+        <input type="text" id="numbers">
+        <p id="result3"></p>
+        <button class="btn" onclick="filterEvenNumbers()">Filter</button>
+    </div>
+
+    <div class="back">
+        <h4>Find Maximum Value</h4>
+        <label for="maxNumbers">Enter Numbers (comma separated)</label>
+        <input type="text" id="maxNumbers">
+        <p id="result4"></p>
+        <button class="btn" onclick="findMaxValue()">Find Maximum</button>
+    </div>
+
+    <div class="back">
+        <h4>Reverse String</h4>
+        <label for="inputString">Enter String</label>
+        <input type="tel" id="inputString">
+        <p id="result5"></p>
+        <button class="btn" onclick="reverseString()">Reverse</button>
+    </div>
+
+    <div class="back">
+        <h4>Generate Random Integer</h4>
+        <label for="minValue">Enter Min Value</label>
+        <input type="tel" id="minValue">
+        <label for="maxValue">Enter Max Value</label>
+        <input type="tel" id="maxValue">
+        <p id="result6"></p>
+        <button class="btn" onclick="generateRandomInt()">Generate</button>
+    </div>
+
+    <div class="back">
+        <h4>Calculate Sum of Array</h4>
+        <label for="arrayValues">Enter Numbers (comma separated)</label>
+        <input type="text" id="arrayValues">
+        <p id="result7"></p>
+        <button class="btn" onclick="calculateSum()">Calculate Sum</button>
+    </div>
+
+    <div class="back">
+        <h4>Check Palindrome</h4>
+        <label for="palindromeString">Enter String</label>
+        <input type="tel" id="palindromeString">
+        <p id="result8"></p>
+        <button class="btn" onclick="checkPalindrome()">Check</button>
+    </div>
+
+    <div class="back">
+        <h4>Capitalize Words</h4>
+        <label for="sentence">Enter Sentence</label>
+        <input type="text" id="sentence">
+        <p id="result9"></p>
+        <button class="btn" onclick="capitalizeWords()">Capitalize</button>
+    </div>
+
+    <div class="back">
+        <h4>Merge Arrays</h4>
+        <label for="array1">Enter Array 1 (comma separated)</label>
+        <input type="text" id="array1">
+        <label for="array2">Enter Array 2 (comma separated)</label>
+        <input type="text" id="array2">
+        <p id="result10"></p>
+        <button class="btn" onclick="mergeArrays()">Merge</button>
+    </div>
+
+    <div class="back">
+        <h4>Count Characters</h4>
+        <label for="charString">Enter String</label>
+        <input type="tel" id="charString">
+        <p id="result11"></p>
+        <button class="btn" onclick="countCharacters()">Count</button>
+    </div>
+
+    <div class="back">
+        <h4>Find Longest Word</h4>
+        <label for="sentenceLongestWord">Enter Sentence</label>
+        <input type="text" id="sentenceLongestWord">
+        <p id="result12"></p>
+        <button class="btn" onclick="findLongestWord()">Find Longest Word</button>
+    </div>
+
+    <script>
+    const pi = 3.14;
+
+function calculateArea() {
+    const radius = parseFloat(document.getElementById("radius").value);
+
+    if (!isNaN(radius) && radius > 0) {
+        const area = pi * radius * radius;
+        document.getElementById("result").innerText = "The Area of the circle is: " + area;
+    } else {
+        document.getElementById("result").innerText = "Please enter a valid radius.";
+    }
+}
+
+        function celsiusToFahrenheit(){
+            const celsius = parseFloat(document.getElementById("celsius").value);
+            if (!isNaN(celsius)) {
+                const fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById("result2").innerText = "The temperature in Fahrenheit is: " + fahrenheit;
+            } else {
+                document.getElementById("result2").innerText = "Please enter a valid Celsius value.";
+            }
+        }
+
+        function filterEvenNumbers() {
+            const numbers = document.getElementById("numbers").value.split(',').map(Number);
+            const evenNumbers = numbers.filter(number => !isNaN(number) && number % 2 === 0);
+            document.getElementById("result3").innerText = "Even Numbers: " + evenNumbers.join(', ');
+        }
+
+        function findMaxValue() {
+            const numbers = document.getElementById("maxNumbers").value.split(',').map(Number);
+            const maxVal = Math.max(...numbers.filter(number => !isNaN(number)));
+            document.getElementById("result4").innerText = "Maximum Value: " + maxVal;
+        }
+
+        function reverseString() {
+            const inputString = document.getElementById("inputString").value;
+            const reversedString = inputString.split("").reverse().join("");
+            document.getElementById("result5").innerText = "The reverse of the string is: " + reversedString;
+        }
+
+        function generateRandomInt() {
+            const min = parseInt(document.getElementById("minValue").value);
+            const max = parseInt(document.getElementById("maxValue").value);
+            if (!isNaN(min) && !isNaN(max) && min <= max) {
+                const randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+                document.getElementById("result6").innerText = "Random Integer: " + randomInt;
+            } else {
+                document.getElementById("result6").innerText = "Please enter valid min and max values.";
+            }
+        }
+
+        function calculateSum() {
+            const numbers = document.getElementById("arrayValues").value.split(',').map(Number);
+            const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+            document.getElementById("result7").innerText = "Sum of Array: " + sum;
+        }
+
+        function checkPalindrome() {
+            const str = document.getElementById("palindromeString").value;
+            const isPalindrome = str === str.split('').reverse().join('');
+            document.getElementById("result8").innerText = isPalindrome ? str + " is a palindrome" : str + " is not a palindrome";
+        }
+
+        function capitalizeWords() {
+            const sentence = document.getElementById("sentence").value;
+            const capitalizedSentence = sentence.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            document.getElementById("result9").innerText = "Capitalized Sentence: " + capitalizedSentence;
+        }
+
+        function mergeArrays() {
+            const array1 = document.getElementById("array1").value.split(',').map(Number);
+            const array2 = document.getElementById("array2").value.split(',').map(Number);
+            const mergedArray = Array.from(new Set(array1.concat(array2)));
+            document.getElementById("result10").innerText = "Merged Array: " + mergedArray.join(', ');
+        }
+
+        function countCharacters() {
+            const str = document.getElementById("charString").value;
+            const charCount = {};
+            for (let char of str) {
+                charCount[char] = (charCount[char] || 0) + 1;
+            }
+            document.getElementById("result11").innerText = "Character Count: " + JSON.stringify(charCount);
+        }
+
+        function findLongestWord() {
+            const sentence = document.getElementById("sentenceLongestWord").value;
+            const words = sentence.split(' ');
+            const longestWord = words.reduce((longest, currentWord) => currentWord.length > longest.length ? currentWord : longest, "");
+            document.getElementById("result12").innerText = "Longest Word: " + longestWord;
+        }
+    </script>
+</body>
+</html>

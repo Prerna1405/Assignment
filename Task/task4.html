@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Age Calculator</title>
+    <style>
+   .container{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+    width: 350px;
+    height: 250px;
+   }
+   #calculateButton{
+    background-color: green;
+    color: white;
+    border: none;
+   }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pet Age Calculator</h1>
+        <input type="number" id="currentAge" >
+        <button id="calculateButton" onclick="calpetage()">Calculate</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+      function calpetage() {
+        const currentAge = parseFloat(document.getElementById('currentAge').value);
+            const petAge = currentAge * 7;
+            document.getElementById('result').innerText = `Your Kitty is  ${petAge} years old in cat Years`
+      }
+            
+        
+    </script>
+</body>
+</html>

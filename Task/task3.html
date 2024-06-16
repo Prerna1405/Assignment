@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Consumption Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Coffee Consumption Calculator</h1>
+        <input type="number" id="cupsPerDay" placeholder="Cups of coffee per day" required>
+        <input type="number" id="currentAge" placeholder="Current age" required>
+        <input type="number" id="lifeExpectancy" placeholder="Life expectancy" required>
+        <button onclick="calculateCoffee()">Calculate</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateCoffee() {
+            const cupsPerDay = document.getElementById('cupsPerDay').value;
+            const currentAge = document.getElementById('currentAge').value;
+            const lifeExpectancy = document.getElementById('lifeExpectancy').value;
+
+            if (cupsPerDay && currentAge && lifeExpectancy) {
+                const yearsRemaining = lifeExpectancy - currentAge;
+                if (yearsRemaining < 0) {
+                    document.getElementById('result').innerText = 'Please enter a life expectancy greater than your current age.';
+                    return;
+                }
+                const totalCups = cupsPerDay * 365 * yearsRemaining;
+                document.getElementById('result').innerText = `You will need approximately ${totalCups} cups of coffee to last you through your coffee drinking years.`;
+            } else {
+                document.getElementById('result').innerText = 'Please fill in all fields.';
+            }
+        }
+    </script>
+</body>
+</html>

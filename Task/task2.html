@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task 2</title>
+</head>
+<body>
+    <p id="msg"></p>
+    <select name="Weather" id="season">
+        <option value="Spring" id="Spring">Spring</option>
+        <option value="Mansoon" id="Mansoon">Mansoon</option>
+        <option value="Summer" id="Summer">Summer</option>
+    </select>
+    <button id="btn" onclick="sea()">Show Message</button>
+    
+    <style>
+       #btn{
+        border: none;
+        background-color: green;
+        color: white;
+        font-weight: bold;
+       }
+        #season{
+            
+            width: 100px;
+            height: 30px;
+            margin-bottom: 20px;
+        }
+        #msg {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function sea() {
+            let season=document.getElementById('season');
+     let Spring=document.getElementById('Spring').value;
+     let Summer=document.getElementById('Summer').value;
+     let Mansoon=document.getElementById('Mansoon').value;
+     let msg=document.getElementById('msg');
+
+     if (season.value===Spring) {
+        msg.style.color="palevioletred";
+        msg.innerHTML='<b>It is a Spring</b><br><img src="spring.jpg" alt="">';
+     
+
+     } 
+     else if (season.value===Summer) {
+         msg.style.color="orange";
+        msg.innerHTML='<b>It is a Summer</b><br><img src="summer.jpg" alt="">';
+      
+     } 
+     else if (season.value===Mansoon) {
+        msg.style.color="blue";
+        msg.innerHTML='<b>It is a Mansoon</b><br><img src="mansoon.jpg" alt="">';
+     } 
+   
+    }
+ 
+     
+    </script>
+   
+</body>
+</html>

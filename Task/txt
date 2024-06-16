@@ -1,0 +1,9 @@
+   function CalculateCoffee(cups,age) {
+            const totalCups = cups * 365 * age; 
+            document.write("You will need "+totalCups+" cups of Coffee to keep your life until "+age);
+            document.write('<br>');
+            document.write('<br>');
+        }
+        CalculateCoffee(3,70);
+        CalculateCoffee(5,50);
+        CalculateCoffee(1,40);
